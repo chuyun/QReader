@@ -1,40 +1,75 @@
-# electron-quick-start
+日常生活中，在电脑端一出现二维码，都要掏出手机扫码，然后将信息发给电脑，相当繁琐
 
-**Clone and run for a quick way to see Electron in action.**
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+该程序支持将二维码拖入程序中，返回二维码内容
 
-A basic Electron application needs just these files:
+下一版本，将会继续实现以下功能：
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main2.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index2.html` - A web page to render. This is the app's **renderer process**.
+支持拖入网址、等其他信息，生成对应的二维码，并保存
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start).
+支持将二维码内容发送到剪切板
 
-## To Use
+支持输入信息，编码为二维码
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+可能会加入对条形码的支持
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
+程序中使用ZXing的二维码解析库
 
-Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
+程序图标
 
-## Other Example Apps
+ 
 
-For more example apps, see the
-[list of boilerplates](http://electron.atom.io/community/#boilerplates)
-created by the awesome electron community.
+程序界面
 
-#### License [CC0 1.0 (Public Domain)](LICENSE.md)
+
+
+2.0.0版本更新记录（2016-11-22）：
+
+弃用Zxing的二维码解析库，版本太老，封装比较复杂
+
+采用AMD规范编码,使用require.js实现js的异步动态加载
+
+优化应用启动速度
+
+支持拖入网址、等其他信息，生成对应的二维码
+
+支持直接将生成的二维码拖拽保存
+
+支持将二维码内容发送到剪切板
+
+Encode和Decode通过右键菜单实现
+
+
+
+下一版本计划
+
+速度优化
+
+window版本支持（暂时没有window 的node环境,mac 打包有点问题）
+
+菜单栏(2016-11-24已添加)，后期将继续完善
+
+还是可能会加入对条形码的支持
+
+可能会加入对摄像头的支持
+
+加入自动更新
+
+其他
+
+
+
+
+
+代码开源在Github
+
+下载地址（window版本暂不提供）
+
+- Mac 版（2.0.0）    Github  百度云盘: 密码: rpyi
+- windows版本(64位)   Coming Soon...
+- windows版本(32位)   Coming Soon...  
+
+
+
+
