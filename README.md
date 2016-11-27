@@ -73,7 +73,7 @@
 
 下载地址（window版本暂不提供）
 
-- Mac 版（2.0.0）    Github  百度云盘: 密码: rpyi
+- Mac 版（2.0.0） 
 - windows版本(64位)   Coming Soon...
 - windows版本(32位)   Coming Soon...  
 
