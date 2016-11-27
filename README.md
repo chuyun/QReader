@@ -65,10 +65,10 @@
 > electron .
 > //package electron 
 > electron-packager ./ QReader --all --out build-package  --overwrite --icon=./app/image/icon/app.icns"
-> //for more infomation please visit electron official website 
-> //Thank you!
+> 
 > ```
-
+    for more infomation please visit electron official website 
+    Thank you!
 代码开源在Github
 
 下载地址（window版本暂不提供）
