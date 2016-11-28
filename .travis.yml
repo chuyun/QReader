@@ -1,0 +1,32 @@
+language: node_js
+node_js: stable
+ 
+# S: Build Lifecycle
+install:
+  - npm install
+ 
+ 
+#before_script:
+  - npm install -g electron
+  - npm install -g electron-packager
+
+script:
+#  - hexo g
+   - electron-packager ./ QReader --all --out build-package  --overwrite --icon=./app/image/icon/app.icns --download.mirror=https://npm.taobao.org/mirrors/electron/
+ 
+after_script:
+  - cd ./build-package
+  - git init
+  - git config user.name "chuyun"
+  - git config user.email "zhangjuncao@outlook.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+# E: Build LifeCycle
+ 
+branches:
+  only:
+    - release
+env:
+ global:
+   - GH_REF: github.com/chuyun/chuyun.github.io.git

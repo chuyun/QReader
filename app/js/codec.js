@@ -114,6 +114,7 @@ requirejs(['jsQR','UTF8To16',"jquery","qrcode"],
                             })
                         }else {
                             //When is Not URL
+                            if(decode_utf16!=undefined){
 
                             // alert("二维码的信息为：\n"+ '"'+decode_utf16+ '"'+"\n已经存储到剪切板！");
                             const ipc = require('electron').ipcRenderer;
@@ -123,6 +124,12 @@ requirejs(['jsQR','UTF8To16',"jquery","qrcode"],
                                 //   doNothing
                                 }
                             })
+                            }else{
+                                const ipc = require('electron').ipcRenderer;
+                                ipc.send('open-err-dialog')
+                                ipc.on('err-dialog-selection')
+                            }
+
 
                         }
 

@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager ./ QReader --all --out build-package  --overwrite --icon=./app/image/icon/app.icns"
+    "package": "electron-packager ./ QReader --all --out build-package  --overwrite --icon=./app/image/icon/app.icns --download.mirror=https://npm.taobao.org/mirrors/electron/"
   },
   "repository": "https://github.com/chuyun/QReader",
   "keywords": [
@@ -13,7 +13,7 @@
     "QRader"
   ],
   "author": "chuyun",
-  "license": "CC0-1.0",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.8",
     "electron-packager": "^8.2.0"

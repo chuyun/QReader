@@ -23,7 +23,8 @@ function createWindow () {
 //                                 frame: false,
                                     width: 225,
                                     height: 250,
-                                    resizable: false
+                                    resizable: false,
+                                    // frame: false
                                     })
 
     // and load the index.html of the app.
@@ -147,6 +148,19 @@ ipc.on("open-info-dialog",function (event,decodeResult) {
         event.sender.send('info-dialog-selection', index)
     })
 
+})
+
+//
+ipc.on("open-err-dialog",function (event) {
+    const options={
+        type:"error",
+        tittle:"WARNING",
+        message: "二维码解析失败，请确认拖入的是否为二维码！"
+
+    }
+    dialog.showMessageBox(options, function () {
+        event.sender.send('err-dialog-selection');
+    })
 })
 
 //Menu
