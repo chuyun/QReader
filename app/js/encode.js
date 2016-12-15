@@ -9,68 +9,81 @@
  * @return {}
  */
 requirejs.config({
-    baseUrl:'js/libs',
-    shim:{
-        jsQR:{
-            deps:[],
-            exports:'jsQR'
+    baseUrl: 'js/libs',
+    shim: {
+        jsQR: {
+            deps: [],
+            exports: 'jsQR'
         },
-        jquery:{
-            deps:[],
-            exports:'$'
+        jquery: {
+            deps: [],
+            exports: '$'
         },
-        zclip:{
-            deps:["jquery"],
-            exports:'zclip'
+        zclip: {
+            deps: ["jquery"],
+            exports: 'zclip'
         },
-        qrcode:{
-            deps:["jquery"],
-            exports:'qrcode'
+        qrcode: {
+            deps: ["jquery"],
+            exports: 'qrcode'
         }
     },
-    paths:{
+    paths: {
         "jquery": "jquery.min",
-        "zclip":"jquery.zclip",
-        "qrcode":"qrcode.min"
+        "zclip": "jquery.zclip",
+        "qrcode": "qrcode.min"
     }
 
 });
 
-requirejs(["jquery","qrcode"],function ($,qrcode) {
+requirejs(["jquery", "qrcode", "tools"],
+    function ($, qrcode, tools) {
 
-    //初始化设置
-    var qrcode = new QRCode(document.getElementById("show"), {
-        width : 190,
-        height : 190,
-        useSVG: true
-    });
-    //生成QRCode
-    function makeCode () {
-        var elText = document.getElementById("input-area");
+        /*NeDB*/
+        const ipcRenderer = require('electron').ipcRenderer;
 
-        if (!elText.value) {
-            // alert("Input a text");
-            elText.focus();
-            // return;
+
+        //初始化设置
+        var qrcode = new QRCode(document.getElementById("show"), {
+            width: 190,
+            height: 190,
+            useSVG: true
+        });
+        //生成QRCode
+        function makeCode() {
+            var elText = document.getElementById("input-area");
+
+            if (!elText.value) {
+                // alert("Input a text");
+                elText.focus();
+                // return;
+            }
+            qrcode.makeCode(elText.value);
         }
-        qrcode.makeCode(elText.value);
-    }
 
-    makeCode();
-
-    $("#input-area").
-    on("blur", function () {
         makeCode();
-    }).
-    on("keydown", function (e) {
-        if (e.keyCode == 13) {
+
+        $("#input-area").on("blur", function () {
             makeCode();
-        }
+        }).on("keydown", function (e) {
+            if (e.keyCode == 13) {
+                makeCode();
+                var text = document.getElementById("input-area").value;
 
-    }).
-    on("keypress",function () {
-        makeCode();
+                var encodeObj = {
+                    type: 'encode',
+                    text: text,
+                    recentTime: tools.getNowFormatDate()
+                }
+
+                if (encodeObj.text) {
+                    ipcRenderer.send('save-db', encodeObj.type, encodeObj.text, encodeObj.recentTime);
+                }
+            }
+
+        }).on("keypress", function () {
+            makeCode();
+        });
+
+
     });
-
-
-});

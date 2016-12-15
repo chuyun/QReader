@@ -1,7 +1,7 @@
 /**
  * Created by jun on 2016/11/22.
  */
-define(['exports'],function (exports) {
+define(['exports'], function (exports) {
     function utf8ToUtf16(s) {//将utf-8字符串转码为unicode字符串，要不读取的二维码信息包含中文会乱码
         if (!s) {
             return;
@@ -34,6 +34,6 @@ define(['exports'],function (exports) {
         return ret.join('');
     }
 
-    exports.utf8ToUtf16=utf8ToUtf16;
+    exports.utf8ToUtf16 = utf8ToUtf16;
 
 });

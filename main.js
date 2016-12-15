@@ -11,6 +11,11 @@ const ipc = electron.ipcMain
 
 const path = require('path')
 const url = require('url')
+// const db = require('./app/js/libs/dbService')
+const ipcService=require('./app/js/libs/ipcService')
+
+//start ipcService
+ipcService.start();
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -72,7 +77,6 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 
 //右键菜单
-
 const menu = new Menu()
 menu.append(new MenuItem({ label: 'Encode',click:function () {
     mainWindow.loadURL(url.format({
@@ -110,7 +114,7 @@ ipc.on('show-context-menu', function (event) {
 })
 
 
-//save
+//save 暂时取消 图片直接拖拽保存
 ipc.on('save-dialog', function (event) {
     const options = {
         title: 'Save an Image',
@@ -236,6 +240,24 @@ let template = [{
             }))
         }
 
+    },{
+        label:'History',
+        accelerator: 'CmdOrCtrl+L',
+        click:function () {
+            const modalPath=path.join('file://', __dirname, 'app/showHistory.html')
+            let win=new BrowserWindow({
+                width:400,
+                height:320,
+                resizable: false
+                // frame:false
+            })
+
+            win.on("close",function () {
+                win=null
+            })
+            win.loadURL(modalPath)
+            win.show();
+        }
     }]
 }, {
     label: 'Window',
@@ -407,3 +429,4 @@ app.on('window-all-closed', function () {
     if (reopenMenuItem) reopenMenuItem.enabled = true
 
 })
+

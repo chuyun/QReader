@@ -60,3 +60,50 @@
     border-radius: 6px ;
     background-color: green;
 }
+
+
+
+
+/*showHistory*/
+#main-container{
+    display: block;
+    /*background-color: #eeeeee;*/
+}
+.main{
+    display: flex;
+
+}
+
+.type{
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    flex: 0 0 60px;
+    order: 0;
+    word-wrap:break-word;
+    overflow: hidden;
+}
+
+.result{
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    flex: 1;
+    order: 1;
+    word-wrap:break-word;
+    overflow: hidden;
+}
+
+.recentTime{
+    border-bottom: 1px solid #ccc;
+    flex: 0 0 120px;
+    order: 2;
+    word-wrap:break-word;
+    overflow: hidden;
+}
+
+.f{
+    margin: 1px;
+}
+
+.bold{
+    font-weight: bold;
+}

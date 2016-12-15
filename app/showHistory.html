@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>showHistory</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<body>
+<div id="main-container">
+    <div class="main">
+        <div class="type bold">Type</div>
+        <div class="result bold">Result</div>
+        <div class="recentTime bold">RecentTime</div>
+    </div>
+</div>
+<form class="m " style="margin-top: 4px">
+    <input class="f " id="input-type" type="text" placeholder="Type" size="8">
+    <input class="f " id="input-result" type="text" placeholder="Please input String to analysis" size="29">
+    <input class="f " id="input-time" type="text" placeholder="time" size="16">
+</form>
+
+<div id="result">
+
+</div>
+
+<div class="control">
+    <button id="addRecord">添加记录</button>
+    <button id="delAllRecord">删除所有记录</button>
+    <button id="reload">刷新</button>
+
+</div>
+
+
+<script src="js/showHistory.js"></script>
+</body>
+</html>
