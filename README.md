@@ -22,11 +22,11 @@
 
 程序图标
 
- ![程序图标](http://chuyun.github.io/image/articles-img/qrcodeb.png)
+ ![程序图标](http://blog.juncao.cc/image/pic/pages/qrcodeb.png)
 
 程序界面
 
-![程序界面](http://chuyun.github.io/image/articles-img/QRJM.png)
+![程序界面](http://blog.juncao.cc/image/pic/pages/QRJM.png)
 
 2.0.0版本更新记录（2016-11-22）：
 
