@@ -28,4 +28,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/chuyun/chuyun.github.io.git
+   - GH_REF: github.com/chuyun/QReader.git
