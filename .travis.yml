@@ -20,7 +20,7 @@ after_script:
   - git config user.email "zhangjuncao@outlook.com"
   - git add .
   - git commit -m "Update"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" release:release
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" origin:release
 # E: Build LifeCycle
  
 branches:
