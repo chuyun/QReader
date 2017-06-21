@@ -20,7 +20,7 @@ after_script:
   - git config user.name "chuyun"
   - git config user.email "zhangjuncao@outlook.com"
   - git add .
-  - git commit -m "Update docs"
+  - git commit -m "Update"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:release
 # E: Build LifeCycle
  
