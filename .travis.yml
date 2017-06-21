@@ -11,9 +11,8 @@ install:
   - npm install -g electron-packager
 
 script:
-#  - hexo g
-   - electron-packager ./ QReader --all --out build-package  --overwrite --icon=./app/image/icon/app.icns --download.mirror=https://npm.taobao.org/mirrors/electron/
- 
+  - npm run package
+
 after_script:
   - cd ./build-package
   - git init
