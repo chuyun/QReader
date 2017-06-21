@@ -15,14 +15,12 @@
   ],
   "author": "chuyun",
   "license": "MIT",
-  "devDependencies": {
-    "electron": "^1.4.12",
-    "electron-packager": "^8.4.0",
-    "electron-rebuild": "^1.4.0",
-    "lokijs": "^1.4.1",
-    "nedb": "^1.8.0"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "electron": "^1.6.11",
+    "electron-packager": "^8.7.1",
+    "electron-rebuild": "^1.5.11",
+    "lokijs": "^1.4.1",
     "nedb": "^1.8.0"
   }
 }

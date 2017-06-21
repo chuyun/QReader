@@ -33,9 +33,7 @@ requirejs.config({
 
 requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
     function (jsQR, UTF8To16, $, qrcode, tools) {
-
         initCanvas(200, 200);
-
         var gCtx = null,
             gCanvas = null,
             imageData = null;
@@ -54,17 +52,13 @@ requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
         function drop(e) {
             e.stopPropagation();
             e.preventDefault();
-            // alert(e.dataTransfer);
             var dt = e.dataTransfer;
             var files = dt.files;
             var reader = handleFiles(files);
             // console.log(reader);
-
         }
-
         /*NeDB*/
         const ipcRenderer = require('electron').ipcRenderer;
-
         /**
          * @author  info_together@aliyun.com
          * @description 处理接收的文件
@@ -78,34 +72,27 @@ requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
                 reader.onload = (function (theFile) {
                     return function (e) {
                         // console.log("f:"+readAsDataURL(f[i]));
-
                         // console.log(decodeURI(e.target.result));
-
                         var txt = e.target.result;
-
                         var canvas = document.getElementById("qr-canvas");
                         var gctx = canvas.getContext('2d');
                         gctx.clearRect(0, 0, 200, 200);
-
                         var myImage = new Image();
                         myImage.onload = function () {
                             gctx.drawImage(myImage, 0, 0, 200, 200);
                             var myImageData = gctx.getImageData(0, 0, 200, 200);
                             gctx.clearRect(0, 0, 200, 200);
                             // console.log(myImageData.data);
-
                             var decoded = jsQR.decodeQRFromImage(myImageData.data, myImageData.width, myImageData.height);
                             var decode_utf16 = UTF8To16.utf8ToUtf16(decoded);
                             // console.log(UTF8To16.utf8ToUtf16(decoded));
                             // alert("二维码的信息为：\n"+ '"'+decode_utf16+ '"'+"\n已经存储到剪切板！");
-
                             //Electron API 写入到剪切板
                             const clipboard = require('electron').clipboard;
                             clipboard.writeText(decode_utf16);
 
                             // Add some documents to the collection 写入到数据库
-
-                            let myobj = {
+                            var myobj = {
                                 type: 'decode',
                                 result: decode_utf16,
                                 recentTime: tools.getNowFormatDate()
@@ -113,7 +100,6 @@ requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
                             console.log(myobj)
                             // ipc
                             ipcRenderer.send('save-db', myobj.type, myobj.result, myobj.recentTime);
-
 
                             //根据是否是URL区分操作
                             //如果是URL链接，则在外部浏览器打开————>先弹窗
@@ -134,7 +120,6 @@ requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
                             } else {
                                 //When is Not URL
                                 if (decode_utf16 != undefined) {
-
                                     // alert("二维码的信息为：\n"+ '"'+decode_utf16+ '"'+"\n已经存储到剪切板！");
                                     const ipc = require('electron').ipcRenderer;
                                     ipc.send('open-info-dialog', decode_utf16);
@@ -190,7 +175,6 @@ requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
                 //显示文件
                 // result.innerHTML='<img src="' + this.result +'" alt="" />';
                 // alert(this.result);
-
             }
         }
 
@@ -215,7 +199,6 @@ requirejs(['jsQR', 'UTF8To16', "jquery", "qrcode", 'tools'],
             gCtx = gCanvas.getContext("2d");
             gCtx.clearRect(0, 0, w, h);
             imageData = gCtx.getImageData(0, 0, 200, 200);
-
             // console.log(imageData);
             // console.log(jsQR.decodeQRFromImage(imageData.data,imageData.width,imageData.height));
         }

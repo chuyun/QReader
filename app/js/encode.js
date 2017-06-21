@@ -42,7 +42,6 @@ requirejs(["jquery", "qrcode", "tools"],
         /*NeDB*/
         const ipcRenderer = require('electron').ipcRenderer;
 
-
         //初始化设置
         var qrcode = new QRCode(document.getElementById("show"), {
             width: 190,

@@ -55,7 +55,7 @@ ipcRenderer.on('receive-result', function (err, docs) {
     // console.log(docs);
     var np = document.createElement('div')
     np.className = 'test'
-    let aa = JSON.stringify(docs)
+    var aa = JSON.stringify(docs)
     var html = ""
     for (var item in docs) {
         np.innerHTML += '<div class="main">' +
