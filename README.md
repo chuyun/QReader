@@ -1,5 +1,5 @@
 
-# 二维码生成与解析软件（桌面版）
+# 二维码生成与解析软件（桌面版）[![Build Status](https://travis-ci.org/chuyun/QReader.svg?branch=master)](https://travis-ci.org/chuyun/QReader)
 
 日常生活中，在电脑端一出现二维码，都要掏出手机扫码，然后将信息发给电脑，相当繁琐
 
