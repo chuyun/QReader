@@ -17,10 +17,10 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "electron": "^1.6.11",
-    "electron-packager": "^8.7.1",
-    "electron-rebuild": "^1.5.11",
-    "lokijs": "^1.4.1",
+    "electron": "^2.0.5",
+    "electron-packager": "^12.1.0",
+    "electron-rebuild": "^1.8.1",
+    "lokijs": "^1.5.5",
     "nedb": "^1.8.0"
   }
 }
