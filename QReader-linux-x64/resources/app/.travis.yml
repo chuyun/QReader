@@ -1,0 +1,31 @@
+language: node_js
+node_js: stable
+ 
+# S: Build Lifecycle
+install:
+  - npm install
+ 
+ 
+#before_script:
+  - npm install -g electron
+  - npm install -g electron-packager
+
+script:
+  - npm run package
+
+after_script:
+  - cd ./build-package
+  - git init
+  - git config user.name "chuyun"
+  - git config user.email "zhangjuncao@outlook.com"
+  - git add .
+  - git commit -m "Update"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:release
+# E: Build LifeCycle
+ 
+branches:
+  only:
+    - master
+env:
+ global:
+   - GH_REF: github.com/chuyun/QReader.git
